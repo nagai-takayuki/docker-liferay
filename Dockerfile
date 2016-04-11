@@ -10,9 +10,7 @@ RUN curl -O -k -L http://downloads.sourceforge.net/project/lportal/Liferay%20Por
     && unzip liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip -d /opt \
     && rm liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip
 
-ADD assets/portal-bundle.properties /opt/liferay-portal-7.0-ce-ga1/portal-bundle.properties
-
-VOLUME ["/var/liferay-home", "/opt/liferay-portal-7.0-ce-ga1/"]
+VOLUME ["/opt/liferay-portal-7.0-ce-ga1/"]
 
 EXPOSE 8080
 
