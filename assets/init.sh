@@ -34,7 +34,6 @@ esac
 
 SETUP_WIZARD_ENABLED=${SETUP_WIZARD_ENABLED:-false}
 SCHEMA_RUN_ENABLED=${SCHEMA_RUN_ENABLED:-true}
-SCHEMA_RUN_MINIMAL=${SCHEMA_RUN_MINIMAL:-false}
 
 cat > $PROPS_FILE << EOF
 setup.wizard.enabled=$SETUP_WIZARD_ENABLED
@@ -45,7 +44,6 @@ jdbc.default.username=$DB_USERNAME
 jdbc.default.password=$DB_PASSWORD
 
 schema.run.enabled=$SCHEMA_RUN_ENABLED
-schema.run.minimal=$SCHEMA_RUN_MINIMAL
 EOF
 
 # start Tomcat
