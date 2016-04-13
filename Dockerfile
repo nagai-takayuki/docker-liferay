@@ -9,11 +9,11 @@ RUN yum install -y \
     supervisor
 RUN yum clean all
 
-RUN curl -O -k -L http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/7.0.0%20GA1/liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip \
- && unzip liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip -d /opt \
- && rm liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip
-RUN ln -s /opt/liferay-portal-7.0-ce-ga1 /opt/liferay \
- && ln -s /opt/liferay/tomcat-8.0.32 /opt/liferay/tomcat
+RUN curl -O -k -L http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip \
+ && unzip liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip -d /opt \
+ && rm liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip
+RUN ln -s /opt/liferay-portal-6.2-ce-ga6 /opt/liferay \
+ && ln -s /opt/liferay/tomcat-7.0.62 /opt/liferay/tomcat
 
 COPY assets/supervisord.conf /etc/supervisord.conf
 COPY assets/init.sh /opt/liferay/init.sh

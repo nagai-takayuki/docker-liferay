@@ -13,16 +13,15 @@ fi
 
 case "${DB_KIND,,}" in
   hypersonic)
-    DB_DRIVER=org.hsqldb.jdbc.JDBCDriver
-    DB_CONN_PARAMS=${DB_CONN_PARAMS:-hsqldb.write_delay=false}
+    DB_DRIVER=org.hsqldb.jdbcDriver
     if [ -z "$DB_URL" ]; then
-        DB_URL=jdbc:hsqldb:\$\{liferay.home\}/data/hypersonic/$DB_NAME;$DB_CONN_PARAMS
+        DB_URL=jdbc:hsqldb:\$\{liferay.home\}/data/hsql/$DB_NAME
     fi
     DB_USERNAME=${DB_USERNAME:-sa}
     ;;
   mysql)
     DB_DRIVER=com.mysql.jdbc.Driver
-    DB_CONN_PARAMS=${DB_CONN_PARAMS:-characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true}
+    DB_CONN_PARAMS=${DB_CONN_PARAMS:-useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false}
     if [ -z "$DB_URL" ]; then
         DB_URL=jdbc:mysql://$DB_HOST$DB_PORT/$DB_NAME?$DB_CONN_PARAMS
     fi
