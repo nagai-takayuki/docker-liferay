@@ -14,6 +14,7 @@ RUN curl -O -k -L http://downloads.sourceforge.net/project/lportal/Liferay%20Por
  && rm liferay-portal-tomcat-7.0-ce-ga1-20160331161017956.zip
 RUN ln -s /opt/liferay-portal-7.0-ce-ga1 /opt/liferay \
  && ln -s /opt/liferay/tomcat-8.0.32 /opt/liferay/tomcat
+RUN echo 'CATALINA_OPTS="$CATALINA_OPTS -Djava.security.egd=file:/dev/./urandom"' >> /opt/liferay/tomcat/bin/setenv.sh
 
 COPY assets/supervisord.conf /etc/supervisord.conf
 COPY assets/init.sh /opt/liferay/init.sh
